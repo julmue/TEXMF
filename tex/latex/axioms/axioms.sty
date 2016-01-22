@@ -1,0 +1,76 @@
+% # Axioms
+
+% ## Axioms In Algebraic Structures
+% ### Structures With One Inner Operation: Groups, ...
+% Closure
+\newcommand{axiomCl}[3]{$\forall #1, #2 \in #3: #1 \circ #2 \in #3$}
+% Associativity
+\newcommmand{axiomA}[4]%
+{$\forall #1, #2, #3 \in #4: (#1\circ#2)\circ#3=#1\circ(#2\circ#3)$}
+% Neutral Element
+\newcommand{axiomN}[3]%
+{$\exists #1 \in #3: \forall #2 \in #3: #1\circ#2 = #2
+% Inverse Element
+\newcommand{axiomI}[3]%
+{$\forall #2 \in #3: \exists #2^{-1} \in #3: #2\circ#2^{-1} = #1$}
+% Commutativity
+\newcommand{axiomC}[3]{$\forall #1, #2 \in #3: #1\circ#2 = #1\circ#2$}
+% Idempotency
+\newcommand{axiomIp}[2]{$\forall #1 \in #2: #1\circ#1 = #1$}
+% ### Structures With Two Inner Operations: Fields, ...
+% Left Distributivity
+\newcommand{AxiomDl}[4]{$\forall #1, #2, #3 \in #4: #1*(#2+#3) = #1*#2 + #1*#3$}
+% Right Distrubutivity
+\newcommand{AxiomDr}[4]{$\forall #1, #2, #3 \in #4: (#1+#2)*#3 = #1*#2 + #1*#3$}
+% Distributivity
+\newcommand{AxiomD}[4]%
+{$\forall #1, #2, #3 \in #4:
+((#1*(#2+#3) = #1*#2 + #1*#3) \and ((#1+#2)*#3 = #1*#2 + #1*#3))$}
+% ### Structures With Two Inner Operations: Lattices, ...
+% Absorption
+\newcommand{AxiomAb}[3]{$\forall #1, #2 \in #3: #1\cap(#1\cup#2) = #1 \and #1\cup(#1\cap#2) = #1$}
+
+% ## Properties Of Relations 
+% ### Heterogenous Relations (R ⊆ A × B, where A = B is possible) 
+% Left-Unique: Injecitvity
+\newcommand{axiomLU}[6]%
+{$\forall #2 \in #5: \forall #1, #3 \in #4:
+(#1,#2) \in #6 \and (#3,#2) \in #6 \Rigtharrow #1 = #3$}
+% Right-Unique: funktional
+\newcommand{axiomRU}[6]%
+{$\forall #1 \in #4: \forall #2, #3 \in #5: 
+(#1,#2) \in #6 \and (#1,#3) \in #6 \Rightarrow #2 = #3$}
+% Left-Total
+\newcommand{axiomLT}[5]%
+{$\forall #1 \in #3: \exists #2 \in #4: (#1,#2) \in #5$}
+% Right-Total
+\newcommand{axiomRT}[5]%
+{$\forall #2 \in #4: \exists #1 \in #3: (#1,#2) \in #5$}
+% ### Properties of Homogenous Relations (R ⊆ A × B)
+% Reflexiv
+\newcommand{axiomRe}[3]{$\forall #1 \in #2: (#1,#1) \in #3$}
+% Irreflexiv
+\newcommand{axiomIRe}[3]{$\forall #1 \in #2: (#1,#1) \notin #3$}
+% Symmetric
+\newcommand{axiomSy}[4]%
+{$\forall #1, #2 \in #3: (#1,#2) \in #4 \Rightarrow (#2,#1) \in #4$}
+% Antisymmetric
+\newcommand{axiomAntiSy}[4]%
+{$\forall #1, #2 \in #3: (#1,#2) \in #4 \and (#2,#1) \in #4%
+\Rightarrow a = b$}
+% Asymmetric
+\newcommand{axiomASy}[4]%
+{$\forall #1, #2 \in #3: (#1,#2) \in #4 \Rightarrow (#2,#1) \notin #4$}
+% Transitive
+\newcommand{axiomTr}[5]{$\forall #1, #2, #3 \in #4:
+(#1,#2) \in #4 \and (#2,#3) \in #4 \Rightarrow (#1,#2) \in #4$)
+% Intransitive
+\newcommand{axiomITr}[5]{$\forall #1, #2, #3 \in #4:
+(#1,#2) \in #4 \and (#2,#3) \in #4 \Rightarrow (#1,#2) \notin #4$)
+% Total
+\newcommand{axiomTot}[4]{$\forall #1, #2 \in #3:
+(#1,#2) \in #4 \or (#2,#1) \in #4$)
+% Trichotomous
+\newcommand{axiomTri}[4]{$\forall #1, #2 \in #3:
+((#1,#2) \in #4 \Rightarrow (#2,#1) \notin #4) \and 
+(#1 \ne #2 \Rightarrow (#1,#2) \in #4 \or (#2,#1) \in #4)$}
