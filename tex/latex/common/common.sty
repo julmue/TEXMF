@@ -1,7 +1,12 @@
-\ProvidesPackage{master}
+\ProvidesPackage{common}
+
+%-------------------------------------------------------------------------------
+% packages
+%-------------------------------------------------------------------------------
 
 % --------------------------------------------------------------------------- %
 % silences harmless warning message
+% --------------------------------------------------------------------------- %
 \usepackage[log-declarations=false]{xparse}
 
 % --------------------------------------------------------------------------- %
@@ -16,12 +21,12 @@
 % package unicode-math:
 % * Maths input can be simplified with Unicode since literal glyphs may be
 %	entered instead of control sequences in your document source.
-% * allows for easy changing of maths fonts (similar to changing text fonts
-%	with fontspec).
+% * allows for easy changing of maths fonts ( similar to changing text fonts
+%	with fontspec.
 % * hint:
 %	it needs to be loaded after any other math or font related package.
 % --------------------------------------------------------------------------- %
-\usepackage{unicode-math}
+% \usepackage{unicode-math}
 
 % --------------------------------------------------------------------------- %
 % package microtype:
@@ -59,22 +64,46 @@
 \usepackage{polyglossia}
 \setdefaultlanguage{german}
 
-% --------------------------------------------------------------------------- %
-% package csquotes:
-% * quotation facilities 
-% --------------------------------------------------------------------------- %
-\usepackage{csquotes}
 
 % --------------------------------------------------------------------------- %
 % package biblatex:
 %	* bibliography
 % --------------------------------------------------------------------------- %
-\usepackage[style=authoryear,backend=bibtex8]{biblatex}
-\bibliography{./bibliography/bibliography}
+\PassOptionsToPackage{%
+    % backend=biber, 
+    backend=bibtex8,
+    % bibencoding=ascii,
+    language=auto,
+    % style=numeric-comp,
+    style=authoryear-comp, 
+    % bibstyle=authoryear,
+    % dashed=false, % dashed: substitute rep. author with ---
+    sorting=nyt, % name, year, title
+    maxbibnames=10, % default: 3, et al.
+    %backref=true,%
+    natbib=true % natbib compatibility mode (\citep and \citet still work)
+}{biblatex}
+\usepackage{biblatex}
+
 
 % --------------------------------------------------------------------------- %
-% package tikz: 
-%	* vector graphics
+% acronyms
+% --------------------------------------------------------------------------- %
+\PassOptionsToPackage{smaller}{acronym}
+\usepackage{acronym} 
+
+%\renewcommand*{\acsfont}[1]{\textssc{#1}} % For MinionPro
+\renewcommand*{\aclabelfont}[1]{\acsfont{#1}}
+
+
+% --------------------------------------------------------------------------- %
+% graphics 
+% --------------------------------------------------------------------------- %
+\usepackage{graphicx} 
+
+
+% --------------------------------------------------------------------------- %
+% vector graphics
 % --------------------------------------------------------------------------- %
 \usepackage{tikz}
 \usetikzlibrary{
@@ -83,32 +112,118 @@
 	positioning,
 }
 
-% --------------------------------------------------------------------------- %
-% package minted: 
-%	* syntax highlighting
-% --------------------------------------------------------------------------- %
-\usepackage{minted}
+
+%-------------------------------------------------------------------------------
+% floats: tables, figures and captions setup
+%-------------------------------------------------------------------------------
+\usepackage{tabularx} % Better tables
+\setlength{\extrarowheight}{3pt} % Increase table row height
+\newcommand{\tableheadline}[1]{\multicolumn{1}{c}{\spacedlowsmallcaps{#1}}}
+\newcommand{\myfloatalign}{\centering} % To be used with each float for alignment
+\usepackage{caption}
+\captionsetup{font=small}
+\usepackage{subfig}  
 
 % --------------------------------------------------------------------------- %
-% package hyperref:
-%	* referencing
+% environments
 % --------------------------------------------------------------------------- %
+\usepackage{environments}
+% math environments
+%-------------------------------------------------------------------------------
+\PassOptionsToPackage{fleqn}{amsmath} % Math environments and more by the AMS 
+\usepackage{amsmath}
+
+
+%-------------------------------------------------------------------------------
+% code listings setup
+%-------------------------------------------------------------------------------
+\usepackage{listings} 
+%\lstset{emph={trueIndex,root},emphstyle=\color{BlueViolet}}%\underbar} % For special keywords
+\lstset{language=[LaTeX]Tex,%C++ % Specify the language(s) for listings here
+morekeywords={PassOptionsToPackage,selectlanguage},
+keywordstyle=\color{RoyalBlue}, % Add \bfseries for bold
+basicstyle=\small\ttfamily, % Makes listings a smaller font size and a different font
+%identifierstyle=\color{NavyBlue}, % Color of text inside brackets
+commentstyle=\color{Green}\ttfamily, % Color of comments
+stringstyle=\rmfamily, % Font type to use for strings
+numbers=left, % Change left to none to remove line numbers
+numberstyle=\scriptsize, % Font size of the line numbers
+stepnumber=5, % Increment of line numbers
+numbersep=8pt, % Distance of line numbers from code listing
+showstringspaces=false, % Sets whether spaces in strings should appear underlined
+breaklines=true, % Force the code to stay in the confines of the listing box
+%frameround=ftff, % Uncomment for rounded frame
+%frame=single, % Frame border - none/leftline/topline/bottomline/lines/single/shadowbox/L
+belowcaptionskip=.75\baselineskip % Space after the "Listing #: Desciption" text and the listing box
+}
+
+
+%-------------------------------------------------------------------------------
+%	HYPERREFERENCES
+%-------------------------------------------------------------------------------
+\PassOptionsToPackage{hyperfootnotes=false,pdfpagelabels}{hyperref}
 \usepackage{hyperref}
+\hypersetup{
+% draft, % remove all links
+colorlinks=true, 
+linktocpage=true, 
+pdfstartpage=3, 
+pdfstartview=FitV,
+% colorlinks=false, 
+% linktocpage=false, 
+% pdfborder={0 0 0}, 
+% pdfstartpage=3, 
+% pdfstartview=FitV, 
+breaklinks=true, 
+pdfpagemode=UseNone, 
+pageanchor=true, 
+pdfpagemode=UseOutlines,
+plainpages=false, 
+bookmarksnumbered, 
+bookmarksopen=true, 
+bookmarksopenlevel=1,
+hypertexnames=true, 
+pdfhighlight=/O,
+% nesting=true,
+% frenchlinks,
+urlcolor=webbrown, 
+linkcolor=RoyalBlue, 
+citecolor=webgreen, 
+% pagecolor=RoyalBlue,
+% urlcolor=Black, 
+% linkcolor=Black, 
+% citecolor=Black, 
+% pagecolor=Black,%
+% PDF file meta-information
+pdftitle={\myTitle},
+pdfauthor={\textcopyright\ \myName, \myUni, \myFaculty},
+pdfsubject={},
+pdfkeywords={},
+pdfcreator={},
+pdfproducer={}
+}
 
 % --------------------------------------------------------------------------- %
-% package xspace:
-%	* prevents missing whitespace after macros
+% various facilities
 % --------------------------------------------------------------------------- %
-\usepackage{xspace}
-
-% --------------------------------------------------------------------------- %
-% package comment:
-%	* provides a comment environment
-% --------------------------------------------------------------------------- %
+% lipsum text generator
+\usepackage{lipsum}
+% quotation
+\usepackage{csquotes}
+% comments
 \usepackage{comment}
+% todo-notes
+\usepackage[disable]{todo}
 
 % --------------------------------------------------------------------------- %
-% package todonotes: 
-%	* todonotes
+% various hygiene packages
 % --------------------------------------------------------------------------- %
-\usepackage{todonotes}
+% \usepackage{textcomp} % Fix warning with missing font shapes
+% \usepackage{scrhack} % Fix warnings when using KOMA with listings package  
+% To get the spacing after macros right 
+\usepackage{xspace}
+% To get marginpar right
+\usepackage{mparhack}
+% Fixes some LaTeX stuff 
+\usepackage{fixltx2e}
+
