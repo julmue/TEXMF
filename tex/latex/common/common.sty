@@ -17,16 +17,6 @@
 % --------------------------------------------------------------------------- %
 \usepackage[quiet]{fontspec}
 
-% --------------------------------------------------------------------------- %
-% package unicode-math:
-% * Maths input can be simplified with Unicode since literal glyphs may be
-%	entered instead of control sequences in your document source.
-% * allows for easy changing of maths fonts ( similar to changing text fonts
-%	with fontspec.
-% * hint:
-%	it needs to be loaded after any other math or font related package.
-% --------------------------------------------------------------------------- %
-% \usepackage{unicode-math}
 
 % --------------------------------------------------------------------------- %
 % package microtype:
@@ -92,9 +82,6 @@
 \PassOptionsToPackage{smaller}{acronym}
 \usepackage{acronym} 
 
-%\renewcommand*{\acsfont}[1]{\textssc{#1}} % For MinionPro
-\renewcommand*{\aclabelfont}[1]{\acsfont{#1}}
-
 
 % --------------------------------------------------------------------------- %
 % graphics 
@@ -124,6 +111,11 @@
 \captionsetup{font=small}
 \usepackage{subfig}  
 
+%-------------------------------------------------------------------------------
+% list environments
+%-------------------------------------------------------------------------------
+\usepackage[inline]{enumitem}
+
 % --------------------------------------------------------------------------- %
 % environments
 % --------------------------------------------------------------------------- %
@@ -139,24 +131,24 @@
 %-------------------------------------------------------------------------------
 \usepackage{listings} 
 %\lstset{emph={trueIndex,root},emphstyle=\color{BlueViolet}}%\underbar} % For special keywords
-\lstset{language=[LaTeX]Tex,%C++ % Specify the language(s) for listings here
-morekeywords={PassOptionsToPackage,selectlanguage},
-keywordstyle=\color{RoyalBlue}, % Add \bfseries for bold
-basicstyle=\small\ttfamily, % Makes listings a smaller font size and a different font
-%identifierstyle=\color{NavyBlue}, % Color of text inside brackets
-commentstyle=\color{Green}\ttfamily, % Color of comments
-stringstyle=\rmfamily, % Font type to use for strings
-numbers=left, % Change left to none to remove line numbers
-numberstyle=\scriptsize, % Font size of the line numbers
-stepnumber=5, % Increment of line numbers
-numbersep=8pt, % Distance of line numbers from code listing
-showstringspaces=false, % Sets whether spaces in strings should appear underlined
-breaklines=true, % Force the code to stay in the confines of the listing box
-%frameround=ftff, % Uncomment for rounded frame
-%frame=single, % Frame border - none/leftline/topline/bottomline/lines/single/shadowbox/L
-belowcaptionskip=.75\baselineskip % Space after the "Listing #: Desciption" text and the listing box
-}
-
+% %\lstset{language=[LaTeX]Tex,%C++ % Specify the language(s) for listings here
+% morekeywords={PassOptionsToPackage,selectlanguage},
+% keywordstyle=\color{blue}, % Add \bfseries for bold
+% basicstyle=\small\ttfamily, % Makes listings a smaller font size and a different font
+% %identifierstyle=\color{NavyBlue}, % Color of text inside brackets
+% commentstyle=\color{green}\ttfamily, % Color of comments
+% stringstyle=\rmfamily, % Font type to use for strings
+% numbers=left, % Change left to none to remove line numbers
+% numberstyle=\scriptsize, % Font size of the line numbers
+% stepnumber=5, % Increment of line numbers
+% numbersep=8pt, % Distance of line numbers from code listing
+% showstringspaces=false, % Sets whether spaces in strings should appear underlined
+% breaklines=true, % Force the code to stay in the confines of the listing box
+% %frameround=ftff, % Uncomment for rounded frame
+% %frame=single, % Frame border - none/leftline/topline/bottomline/lines/single/shadowbox/L
+% belowcaptionskip=.75\baselineskip % Space after the "Listing #: Desciption" text and the listing box
+% }
+% 
 
 %-------------------------------------------------------------------------------
 %	HYPERREFERENCES
@@ -186,17 +178,17 @@ hypertexnames=true,
 pdfhighlight=/O,
 % nesting=true,
 % frenchlinks,
-urlcolor=webbrown, 
-linkcolor=RoyalBlue, 
-citecolor=webgreen, 
+% urlcolor=webbrown, 
+% linkcolor=RoyalBlue, 
+% citecolor=webgreen, 
 % pagecolor=RoyalBlue,
 % urlcolor=Black, 
 % linkcolor=Black, 
 % citecolor=Black, 
 % pagecolor=Black,%
 % PDF file meta-information
-pdftitle={\myTitle},
-pdfauthor={\textcopyright\ \myName, \myUni, \myFaculty},
+% pdftitle={\myTitle},
+% pdfauthor={\textcopyright\ \myName, \myUni, \myFaculty},
 pdfsubject={},
 pdfkeywords={},
 pdfcreator={},
@@ -214,6 +206,17 @@ pdfproducer={}
 \usepackage{comment}
 % todo-notes
 \usepackage[disable]{todo}
+
+% --------------------------------------------------------------------------- %
+% package unicode-math:
+% * Maths input can be simplified with Unicode since literal glyphs may be
+%	entered instead of control sequences in your document source.
+% * allows for easy changing of maths fonts ( similar to changing text fonts
+%	with fontspec.
+% * hint:
+%	it needs to be loaded after any other math or font related package.
+% --------------------------------------------------------------------------- %
+\usepackage{unicode-math}
 
 % --------------------------------------------------------------------------- %
 % various hygiene packages

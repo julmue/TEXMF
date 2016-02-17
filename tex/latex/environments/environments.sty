@@ -1,6 +1,74 @@
-% math environments
-%-------------------------------------------------------------------------------
-% \PassOptionsToPackage{fleqn}{amsmath} % Math environments and more by the AMS 
-\usepackage{amsmath}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% COMMANDS AND ENVIRONMENTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newenvironment{definition}[1]{}{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% commands
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% ------------------------------------------------------------------------------
+% semantic predicates in text 
+% ------------------------------------------------------------------------------
+\newcommand{\axiom}[1]{\text{#1}}
+\newcommand{\definiendum}[1]{\text{#1}} % definiendum in the body of the definiens
+\newcommand{\mobj}[1]{\text{\textbf{#1}}}
+\newcommand{\concept}[1]{\textit{#1}}
+\newcommand{\property}[1]{\textit{#1}}
+\newcommand{\informal}[1]{\enquote{#1}}
+
+% ------------------------------------------------------------------------------
+% math notation facilities 
+% ------------------------------------------------------------------------------
+\newcommand{\set}[1]{\{#1\}}
+\newcommand{\comp}[2]{\{ #1 | #2 \}}
+
+% ------------------------------------------------------------------------------
+% misc
+% ------------------------------------------------------------------------------
+% foreign language ... maybe this could be done better
+\newcommand{\engl}[2]{(\text{#1}: \textit{#2})}
+% wrapper for graphics
+\newcommand{\graphics}[2]%
+{\begin{center}\includegraphics[width=7cm]{#1}\captionof{figure}{#2}\end{center}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% environments
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% ------------------------------------------------------------------------------
+% math environments
+% ------------------------------------------------------------------------------
+% Attention: 
+% ntheorem interferes with amsmath ... you can't use both.
+\usepackage{amsthm}
+% Some tools to give a better interface to amsmath
+\usepackage{thmtools}
+
+\newtheoremstyle{break}
+  {\topsep}{\topsep}%
+  {\itshape}{}%
+  {\bfseries}{}%
+  {\newline}{}%
+\theoremstyle{break}
+\newtheorem{definition}{Definition}
+\theoremstyle{remark}
+\newtheorem*{remark}{Anmerkung}
+\theoremstyle{break}
+\newtheorem{theorem}{Satz}
+\newtheorem{example}{Beispiel}[section]
+
+\newenvironment{subproof}[1][\proofname]{%
+\renewcommand{\qedsymbol}{$\blacksquare$}%
+   \begin{proof}[#1]%
+}{%
+   \end{proof}%
+}
+
+
+% ------------------------------------------------------------------------------
+% other environments
+% ------------------------------------------------------------------------------
+
+% \newenvironment{example}{}{}
