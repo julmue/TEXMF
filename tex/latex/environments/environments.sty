@@ -17,6 +17,7 @@
 \newcommand{\concept}[1]{\textit{#1}}
 \newcommand{\property}[1]{\textit{#1}}
 \newcommand{\informal}[1]{\enquote{#1}}
+\newcommand{\category}[1]{\textbf{#1}}
 
 % ------------------------------------------------------------------------------
 % math notation facilities 
@@ -31,7 +32,21 @@
 \newcommand{\engl}[2]{(\text{#1}: \textit{#2})}
 % wrapper for graphics
 \newcommand{\graphics}[2]%
-{\begin{center}\includegraphics[width=7cm]{#1}\captionof{figure}{#2}\end{center}}
+{\begin{minipage}{\textwidth}%
+	\begin{center}%
+		\includegraphics[width=7cm]{#1}\captionof{figure}{#2}%
+	\end{center}%
+\end{minipage}}%
+
+\newcommand{\doublegraphics}[4]%
+{\begin{minipage}{\textwidth}%
+	\begin{minipage}{0.5\textwidth}%
+		\graphics{#1}{#2}%
+	\end{minipage}%
+	\begin{minipage}{0.5\textwidth}%
+		\graphics{#3}{#4}%
+	\end{minipage}%
+\end{minipage}}%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % environments
@@ -53,11 +68,12 @@
   {\newline}{}%
 \theoremstyle{break}
 \newtheorem{definition}{Definition}
-\theoremstyle{remark}
 \newtheorem*{remark}{Anmerkung}
-\theoremstyle{break}
+%\theoremstyle{break}
 \newtheorem{theorem}{Satz}
 \newtheorem{example}{Beispiel}[section]
+\newtheorem{analogon}{Analogon}
+
 
 \newenvironment{subproof}[1][\proofname]{%
 \renewcommand{\qedsymbol}{$\blacksquare$}%
