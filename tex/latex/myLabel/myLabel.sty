@@ -1,0 +1,45 @@
+\usepackage[a4paper, landscape, margin=5mm]{geometry}
+% Leitzordner, Connor schmal:
+%     h: 185mm
+%     b: 30mm
+%
+% Leitzordner breit:
+%     h: 185mm
+%     b: 
+
+% 1: Breite
+% 3: Kategorie
+% 4: Abkürzung
+% 5: Thema
+
+\newcommand{\ordner}[5]{
+    \framebox{%
+        \begin{minipage}[t][185mm][t]{#1}
+    	% category
+            \begin{minipage}[c][25mm][c]{#1}
+                \begin{center}
+                    \huge{#2}\\
+                    \vspace{2mm}
+                    \normalsize{#3}
+                \end{center}
+            \end{minipage}%
+            \hrule
+    	% acronym
+            \begin{minipage}[c][45mm][c]{#1}
+                \begin{center}
+    		    \Huge{#4}
+                \end{center}
+            \end{minipage}
+            \hrule
+    	% topic heading
+			\vspace{7.5mm}
+            \begin{minipage}[t][85mm][t]{#1}
+                \begin{center}
+    		\large{#5}
+                \end{center}
+            \end{minipage}
+        \end{minipage}%
+    }
+}
+
+\newcommand{\leitzschmal}[3]{\ordner{30mm}{#1}{#2}{#3}}

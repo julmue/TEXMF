@@ -240,7 +240,7 @@
 	year = "1991"
 }
 
-@book{FSPL:1993,
+@book{FSAI:1993,
 	author = "Winskel, Glynn",
 	isbn = "978-0-262-23169-5",
 	pages = "361",
@@ -407,13 +407,7 @@
 @book{HTT:2013,
 	author = "Coquand, Thierry and Voevodsky, Vladimier and others",
 	institution = "Institute for Advanced Study",
-	title = "{Homotopy Type Theory: Univalent Foundations of Mathematics}",
+	title = "Homotopy Type Theory: Univalent Foundations of Mathematics",
 	year = "2013"
-}
-
-@unpublished{PARA:2015,
-	author = "M{\"u}ller, Julian",
-	title = "{Implementierung der mehrwertigen, parakonsistenten Logik LP in Haskell}",
-	year = "2015"
 }
 

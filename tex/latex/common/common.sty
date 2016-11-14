@@ -65,7 +65,8 @@
     % bibencoding=ascii,
     language=auto,
     % style=numeric-comp,
-    style=authoryear-comp, 
+	style=authortitle-icomp,
+    % style=authoryear-comp, 
     % bibstyle=authoryear,
     % dashed=false, % dashed: substitute rep. author with ---
     sorting=nyt, % name, year, title
@@ -75,6 +76,8 @@
 }{biblatex}
 \usepackage{biblatex}
 
+% name of bib-file
+\addbibresource{Bibliography}
 
 % --------------------------------------------------------------------------- %
 % acronyms
@@ -97,6 +100,8 @@
 	intersections,
 	arrows,	
 	positioning,
+	topaths,
+	petri,
 }
 
 
@@ -122,7 +127,7 @@
 \usepackage{environments}
 % math environments
 %-------------------------------------------------------------------------------
-\PassOptionsToPackage{fleqn}{amsmath} % Math environments and more by the AMS 
+%\PassOptionsToPackage{fleqn}{amsmath} % Math environments and more by the AMS 
 \usepackage{amsmath}
 
 
@@ -130,11 +135,14 @@
 % code listings setup
 %-------------------------------------------------------------------------------
 \usepackage{listings} 
-%\lstset{emph={trueIndex,root},emphstyle=\color{BlueViolet}}%\underbar} % For special keywords
-% %\lstset{language=[LaTeX]Tex,%C++ % Specify the language(s) for listings here
+\lstset{
+% language=[LaTeX]Tex,%C++ % Specify the language(s) for listings here
 % morekeywords={PassOptionsToPackage,selectlanguage},
 % keywordstyle=\color{blue}, % Add \bfseries for bold
-% basicstyle=\small\ttfamily, % Makes listings a smaller font size and a different font
+basicstyle=\small\ttfamily, % Makes listings a smaller font size and a different font
+% extendedchars=true,
+%literate={λ}{{\lambda}}1
+mathescape=false,
 % %identifierstyle=\color{NavyBlue}, % Color of text inside brackets
 % commentstyle=\color{green}\ttfamily, % Color of comments
 % stringstyle=\rmfamily, % Font type to use for strings
@@ -147,8 +155,8 @@
 % %frameround=ftff, % Uncomment for rounded frame
 % %frame=single, % Frame border - none/leftline/topline/bottomline/lines/single/shadowbox/L
 % belowcaptionskip=.75\baselineskip % Space after the "Listing #: Desciption" text and the listing box
-% }
-% 
+}
+ 
 
 %-------------------------------------------------------------------------------
 %	HYPERREFERENCES
@@ -182,10 +190,10 @@ pdfhighlight=/O,
 % linkcolor=RoyalBlue, 
 % citecolor=webgreen, 
 % pagecolor=RoyalBlue,
-% urlcolor=Black, 
-% linkcolor=Black, 
-% citecolor=Black, 
-% pagecolor=Black,%
+urlcolor=black, 
+linkcolor=black, 
+citecolor=black, 
+pagecolor=black,%
 % PDF file meta-information
 % pdftitle={\myTitle},
 % pdfauthor={\textcopyright\ \myName, \myUni, \myFaculty},
@@ -217,6 +225,7 @@ pdfproducer={}
 %	it needs to be loaded after any other math or font related package.
 % --------------------------------------------------------------------------- %
 \usepackage{unicode-math}
+
 
 % --------------------------------------------------------------------------- %
 % various hygiene packages

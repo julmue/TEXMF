@@ -411,9 +411,3 @@
 	year = "2013"
 }
 
-@unpublished{PARA:2015,
-	author = "M{\"u}ller, Julian",
-	title = "{Implementierung der mehrwertigen, parakonsistenten Logik LP in Haskell}",
-	year = "2015"
-}
-
